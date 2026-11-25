@@ -1,4 +1,4 @@
-<!doctype html> 
+<!doctype html>
 
 <html lang="en">
 
@@ -903,16 +903,16 @@
 <div class="wrap">
 <div class="chapter-head reveal">
 <div><span class="eyebrow">Outside work</span><h2>Same curiosity.<br>Different interests.</h2>
-</div><p class="muted">Music is one of the places where I notice my habit of looking for patterns, details and connections.</p>
+</div><p class="muted">My interests outside work reflect how I approach information, people and unfamiliar situations.</p>
 </div>
 <div class="human-grid">
 <article class="human-card">
 <div class="photo photo-slot" data-photo="guitar.jpg">Playing guitar · Photo to come
-</div><h3>Listening differently.</h3><p>I can listen to the same song repeatedly, focusing on a different instrument, rhythm or detail each time.</p>
+</div><h3>Listening differently.</h3><p>I often listen to the same song several times, focusing on the guitar, bass, drums or rhythm individually. I enjoy understanding how each layer fits into the whole. At work, I approach complex information in much the same way: break it down, organise it, identify patterns and connections, then put everything back together to understand the bigger picture.</p>
 <div class="wave" id="wave" aria-hidden="true">
 </div>
 <div class="tabs" id="musicTabs"><button class="tab" data-mode="whole" aria-pressed="true">Whole track</button><button class="tab" data-mode="detail" aria-pressed="false">Details</button><button class="tab" data-mode="pattern" aria-pressed="false">Patterns</button>
-</div><p id="musicText" aria-live="polite">First, experience the whole piece. Then listen more closely.</p><small class="muted">Visual metaphor · no audio</small>
+</div><p id="musicText" aria-live="polite">Start with the bigger picture, whether it is a song or a business problem. Understand the context before examining the details.</p><small class="muted">Visual metaphor · no audio</small>
 </article>
 <article class="human-card">
 <div class="photo photo-slot" data-photo="life.jpg">Animals · Photo to come
@@ -924,7 +924,8 @@
 <div><strong>1</strong><span>Time bitten while helping animals</span>
 </div>
 </div>
-</div><p>Outside work, I also enjoy travelling and cooking.</p>
+</div></article>
+<article class="human-card"><span class="eyebrow">Travel &amp; culture</span><h3>20+ countries. Different perspectives.</h3><p>Travelling has introduced me to different cultures, nationalities and ways of life. It has helped me become more adaptable, open to different perspectives and comfortable communicating with people from diverse backgrounds. I also enjoy cooking and discovering new cuisines.</p>
 </article>
 </div>
 <article class="playlist">
@@ -998,7 +999,7 @@ for (let i = 0; i < 45; i++) {
     bar.style.setProperty('--h', `${18 + Math.abs(Math.sin(i * 1.72) * Math.cos(i * .21)) * 80}%`);
     wave.append(bar);
 }
-const music = { whole: 'First, experience the whole piece. Then listen more closely.', detail: 'Focus on one instrument or element. What changes when the other layers are removed?', pattern: 'Notice recurring rhythms and structures. The same habit helps me look for relationships in information.' };
+const music = { whole: 'Start with the bigger picture, whether it is a song or a business problem. Understand the context before examining the details.', detail: 'Isolate an instrument, just as I would separate complex information into smaller, more manageable parts.', pattern: 'Identify recurring patterns and relationships, then connect the individual pieces into a coherent picture.' };
 $$('[data-mode]').forEach(b => b.addEventListener('click', () => { select('#musicTabs', b); wave.dataset.mode = b.dataset.mode; $('#musicText').textContent = music[b.dataset.mode]; }));
 const dialog = $('#quick');
 ['#quickOpen', '#quickBottom'].forEach(s => $(s).addEventListener('click', () => dialog.showModal()));
