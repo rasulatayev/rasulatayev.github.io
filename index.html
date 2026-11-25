@@ -720,6 +720,26 @@
                                                                                                                                                                                                                                                                                                                                                         .facts{
                                                                                                                                                                                                                                                                                                                                                           grid-template-columns:repeat(3,minmax(0,1fr))}
                                                                                                                                                                                                                                                                                                                                                         }
+
+/* LinkedIn-inspired unpublished post */
+.draft { padding: 18px 18px 12px; border-radius: 10px; color: #191919; font-family: Arial, sans-serif; }
+.draft-head { align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+.draft-head .avatar { flex: 0 0 48px; }
+.li-person { flex: 1; min-width: 0; line-height: 1.4; }
+.li-person strong { font-size: 15px; }
+.li-headline,.li-meta { font-size: 12px; color: #666; }
+.li-more { color: #666; letter-spacing: 2px; }
+.draft .celebration { display: block; width: 100%; border-radius: 0; }
+.li-engagement { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 0; font-size: 12px; color: #666; border-bottom: 1px solid #ddd; }
+.li-reactions { display: flex; padding-left: 3px; }
+.li-reactions span { display: grid; place-items: center; width: 23px; height: 23px; border-radius: 50%; background: #e1effc; border: 2px solid white; margin-left: -3px; font-size: 12px; }
+.li-reactions span:nth-child(2) { background: #d9edc8; }
+.li-reactions span:nth-child(3) { background: #fbe0dc; }
+.li-actions { display: grid; grid-template-columns: repeat(4,1fr); gap: 3px; padding: 10px 0; }
+.li-actions span { display: flex; align-items: center; justify-content: center; gap: 5px; font-size: 13px; font-weight: 600; color: #555; }
+.li-actions svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+@media(max-width: 480px) { .li-actions span { flex-direction: column; font-size: 11px; } }
+
 </style>
 
 </head>
@@ -948,11 +968,18 @@
 <div class="draft-head">
 <div class="avatar">RA
 </div>
-<div><strong>Rasul Atayev</strong>
-<div style="font-size:13px;color:#59636e">Personal draft · Not published
-</div>
-</div>
+<div class="li-person"><strong>Rasul Atayev</strong>
+<div class="li-headline">Business Consultant | Business Analysis &amp; Market Research | Master’s in Marketing Analytics</div>
+<div class="li-meta">Future announcement · <span aria-label="Public post preview">◎</span></div>
+</div><span class="li-more" aria-hidden="true">•••</span>
 </div><p>I'm happy to share that I'm starting a new chapter in my professional journey.</p><p>I'm looking forward to learning from new colleagues, contributing to meaningful work and taking on new responsibilities.</p><svg class="celebration" viewBox="0 0 640 320" role="img" aria-label="Playful illustration of a smiling person celebrating a new job with confetti and a briefcase" xmlns="http://www.w3.org/2000/svg"><rect width="640" height="320" fill="#dcebf4"/><circle cx="320" cy="165" r="132" fill="#f6d77e"/><g fill="none" stroke-width="7" stroke-linecap="round"><path d="M80 65l12 18m460 40l20 -12M145 245l-17 12m390 -210l-12 18" stroke="#e47762"/><path d="M110 130l20 -8m400 105l16 15M220 35l-5 19m225 222l12 -20" stroke="#377a88"/><path d="M70 220l12 -15m500 -20l-18 -5M405 35l10 16" stroke="#7766a8"/></g><g stroke="#23394a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M260 282l-24 27m112 -27l28 27" fill="none"/><path d="M254 174Q215 161 177 107L151 65M369 173Q411 155 449 102L470 65" fill="none" stroke="#397f83" stroke-width="29"/><path d="M151 65l-13 -16m13 16l12 -20m307 20l-12 -20m12 20l14 -16" stroke="#b77c59" fill="none"/><rect x="247" y="153" width="130" height="139" rx="38" fill="#397f83"/><path d="M312 180l-15 58 15 18 15 -18z" fill="#f6d77e" stroke-width="3"/><circle cx="312" cy="110" r="61" fill="#dca780"/><path d="M254 102Q240 43 305 43Q368 40 374 97Q337 73 309 79Q280 94 254 102" fill="#25394a"/><path d="M281 112h1m58 0h1" stroke-width="9"/><path d="M288 135q24 25 48 0z" fill="white" stroke-width="4"/><rect x="430" y="224" width="104" height="68" rx="9" fill="#bd7855"/><path d="M462 224v-15h40v15m-72 26h104" fill="none" stroke-width="5"/></g><text x="320" y="25" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="bold" letter-spacing="4" fill="#37566a">NEW BEGINNINGS</text></svg>
+<div class="li-engagement"><span class="li-reactions" aria-label="Reaction preview"><span>👍</span><span>👏</span><span>❤️</span></span><span>Reactions · Comments · Reposts</span></div>
+<div class="li-actions" aria-label="LinkedIn post preview controls">
+<span><svg viewBox="0 0 24 24"><path d="M7 10v11H3V10zM7 11l5-8c3 0 3 3 2 6h5c2 0 2 2 1 4l-2 6c-.3 1-1 2-3 2H7"/></svg>Like</span>
+<span><svg viewBox="0 0 24 24"><path d="M21 11a9 9 0 0 1-9 9H4l2-5a9 9 0 1 1 15-4Z"/><path d="M8 9h8M8 13h6"/></svg>Comment</span>
+<span><svg viewBox="0 0 24 24"><path d="M4 9h15l-4-4m4 4-4 4M20 15H5l4-4m-4 4 4 4"/></svg>Repost</span>
+<span><svg viewBox="0 0 24 24"><path d="m3 3 18 9-18 9 4-9zM7 12h14"/></svg>Send</span>
+</div>
 <div class="status">Status: Draft. Missing information: Start date.
 </div>
 </article><p class="muted" style="margin:25px auto 0;text-align:center">I may have started thinking about the announcement a little early.</p>
