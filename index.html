@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Rasul Atayev | Project Creation</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #101010;
+  color: #f5f3ee;
+  font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  color: white;
+  background: rgba(16,16,16,0.85);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+#counter {
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+main {
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+
+main::-webkit-scrollbar {
+  display: none;
+}
+
+section {
+  min-height: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 90px 8% 100px;
+  position: relative;
+}
+
+.chapter {
+  font-size: 11px;
+  letter-spacing: 4px;
+  opacity: 0.6;
+  margin-bottom: 28px;
+}
+
+h1 {
+  font-size: clamp(48px, 9vw, 110px);
+  line-height: 1.02;
+  letter-spacing: -3px;
+  max-width: 1000px;
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.7;
+  opacity: 0.7;
+  max-width: 550px;
+  margin-top: 24px;
+}
+
+.intro {
+  background: radial-gradient(
+    ellipse at top right,
+    #354957,
+    #101010 65%
+  );
+}
+
+.journey {
+  background: #191e23;
+}
+
+.mind {
+  background: #eae7e0;
+  color: #151515;
+}
+
+.evidence {
+  background: #182027;
+}
+
+.human {
+  background: radial-gradient(
+    ellipse at top right,
+    #634633,
+    #101010 70%
+  );
+}
+
+.future {
+  background: linear-gradient(
+    145deg, #101010, #294354
+  );
+}
+
+.scroll {
+  position: absolute;
+  bottom: 75px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  opacity: 0.6;
+}
+
+.progress {
+  position: fixed;
+  bottom: 25px;
+  left: 8%;
+  right: 8%;
+  display: flex;
+  gap: 6px;
+  z-index: 20;
+}
+
+.progress button {
+  flex: 1;
+  height: 20px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.progress button::after {
+  content: "";
+  display: block;
+  height: 4px;
+  border-radius: 5px;
+  background: #777;
+}
+
+.progress button.active::after {
+  background: #fff;
+  box-shadow: 0 0 8px #555;
+}
+
+.action {
+  margin-top: 30px;
+  padding: 15px 22px;
+  background: #f5f3ee;
+  color: #101010;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+#demo {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+  max-width: 400px;
+  margin-top: 25px;
+}
+
+.cell {
+  height: 22px;
+  background: #53616c;
+  border-radius: 3px;
+  transition: background 0.4s;
+}
+
+.cell.error {
+  background: #b77d43;
+}
+
+.cell.valid {
+  background: #65957c;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">RA.</div>
+  <div id="counter">01 / 06</div>
+</header>
+
+<main id="feed">
+
+<section class="intro">
+  <div class="chapter">01 / THE INTRODUCTION</div>
+  <h1>The art of<br>figuring<br>things out.</h1>
+  <p>Business. Technology. Creativity. Curiosity.</p>
+  <div class="scroll">SWIPE TO DISCOVER ↓</div>
+</section>
+
+<section class="journey">
+  <div class="chapter">02 / THE JOURNEY</div>
+  <h1>10 years.<br>Two countries.</h1>
+  <p>Turkmenistan. Austria. Home again.
+  Two university degrees and a different
+  perspective on the world.</p>
+</section>
+
+<section class="mind">
+  <div class="chapter">03 / THE MIND</div>
+  <h1>There must be<br>a better way.</h1>
+  <p>Understand. Explore. Learn. Build.
+  I enjoy finding solutions that make
+  complicated things simpler.</p>
+</section>
+
+<section class="evidence">
+  <div class="chapter">04 / THE EVIDENCE</div>
+  <h1>Beyond<br>the task.</h1>
+  <p>An illustrative demonstration of
+  structured data collection.</p>
+  <div id="demo"></div>
+  <button class="action" id="solve">
+    Improve the process
+  </button>
+</section>
+
+<section class="human">
+  <div class="chapter">05 / THE HUMAN</div>
+  <h1>More than<br>work.</h1>
+  <p>Music. Guitar. Exploration.
+  Curiosity doesn't end at the office.</p>
+</section>
+
+<section class="future">
+  <div class="chapter">06 / THE NEXT CHAPTER</div>
+  <h1>Ready for<br>what's next.</h1>
+  <p>New challenges. Greater responsibility.
+  More opportunities to learn and contribute.</p>
+  <p>RASUL ATAYEV</p>
+</section>
+
+</main>
+
+<div class="progress" id="progress"></div>
+
+<script>
+const feed = document.getElementById("feed");
+const sections = document.querySelectorAll("section");
+const progress = document.getElementById("progress");
+
+sections.forEach((section, i) => {
+  const button = document.createElement("button");
+  button.setAttribute("aria-label", "Chapter " + (i + 1));
+  button.onclick = () => section.scrollIntoView({
+    behavior: "smooth"
+  });
+  progress.appendChild(button);
+});
+
+function updateProgress() {
+  let current = 0;
+  let distance = Infinity;
+
+  sections.forEach((section, i) => {
+    const d = Math.abs(
+      section.getBoundingClientRect().top
+    );
+    if (d < distance) {
+      distance = d;
+      current = i;
+    }
+  });
+
+  document.getElementById("counter").textContent =
+    String(current + 1).padStart(2, "0") + " / 06";
+
+  Array.from(progress.children).forEach((button, i) => {
+    button.classList.toggle("active", i <= current);
+  });
+}
+
+feed.addEventListener("scroll", updateProgress);
+updateProgress();
+
+const demo = document.getElementById("demo");
+let improved = false;
+
+function renderDemo() {
+  demo.innerHTML = "";
+
+  for (let i = 0; i < 24; i++) {
+    const cell = document.createElement("div");
+    cell.className = "cell";
+
+    if (improved) {
+      cell.classList.add("valid");
+    } else if (i % 4 === 0 || i % 7 === 0) {
+      cell.classList.add("error");
+    }
+
+    demo.appendChild(cell);
+  }
+}
+
+document.getElementById("solve").onclick = function() {
+  improved = !improved;
+  renderDemo();
+  this.textContent = improved
+    ? "Reset demonstration"
+    : "Improve the process";
+};
+
+renderDemo();
+</script>
+
+</body>
+</html>
