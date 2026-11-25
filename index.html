@@ -1,336 +1,1473 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>Rasul Atayev | Project Creation</title>
 
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
 
-body {
-  background: #101010;
-  color: #f5f3ee;
-  font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-}
+  <title>Rasul Atayev — A closer look</title>
 
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 10;
-  color: white;
-  background: rgba(16,16,16,0.85);
-}
+  <style>
 
-.logo {
-  font-size: 22px;
-  font-weight: bold;
-  letter-spacing: 3px;
-}
+    /* ========================================
+       PROJECT CREATION V0.2
+       VISUAL IDENTITY
+    ======================================== */
 
-#counter {
-  font-size: 12px;
-  letter-spacing: 2px;
-}
+    :root {
+      --ink: #111411;
+      --paper: #eeeee6;
+      --lime: #d8fa78;
+      --muted: #a8afa4;
+    }
 
-main {
-  height: 100vh;
-  height: 100dvh;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  scrollbar-width: none;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-main::-webkit-scrollbar {
-  display: none;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-section {
-  min-height: 100%;
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 90px 8% 100px;
-  position: relative;
-}
+    body {
+      margin: 0;
+      background: var(--ink);
+      color: var(--paper);
+      font: 16px/1.5 system-ui, sans-serif;
+    }
 
-.chapter {
-  font-size: 11px;
-  letter-spacing: 4px;
-  opacity: 0.6;
-  margin-bottom: 28px;
-}
+    button, a {
+      font: inherit;
+    }
 
-h1 {
-  font-size: clamp(48px, 9vw, 110px);
-  line-height: 1.02;
-  letter-spacing: -3px;
-  max-width: 1000px;
-}
+    button {
+      cursor: pointer;
+    }
 
-p {
-  font-size: 17px;
-  line-height: 1.7;
-  opacity: 0.7;
-  max-width: 550px;
-  margin-top: 24px;
-}
+    a {
+      color: inherit;
+    }
 
-.intro {
-  background: radial-gradient(
-    ellipse at top right,
-    #354957,
-    #101010 65%
-  );
-}
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid #9bcaff;
+      outline-offset: 4px;
+    }
 
-.journey {
-  background: #191e23;
-}
+    /* NAVIGATION */
 
-.mind {
-  background: #eae7e0;
-  color: #151515;
-}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 9;
+      background: #111411f5;
+      border-bottom: 1px solid #ffffff20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px max(5vw, 16px);
+      gap: 12px;
+    }
 
-.evidence {
-  background: #182027;
-}
+    header a {
+      text-decoration: none;
+    }
 
-.human {
-  background: radial-gradient(
-    ellipse at top right,
-    #634633,
-    #101010 70%
-  );
-}
+    .brand {
+      font-weight: 900;
+      letter-spacing: -1px;
+      font-size: 24px;
+    }
 
-.future {
-  background: linear-gradient(
-    145deg, #101010, #294354
-  );
-}
+    .nav {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-size: 12px;
+    }
 
-.scroll {
-  position: absolute;
-  bottom: 75px;
-  font-size: 10px;
-  letter-spacing: 3px;
-  opacity: 0.6;
-}
+    .pill, button {
+      border: 1px solid #ffffff40;
+      border-radius: 100px;
+      background: transparent;
+      color: inherit;
+      padding: 10px 16px;
+    }
 
-.progress {
-  position: fixed;
-  bottom: 25px;
-  left: 8%;
-  right: 8%;
-  display: flex;
-  gap: 6px;
-  z-index: 20;
-}
+    .primary {
+      background: var(--lime);
+      color: #111411;
+      border: 0;
+      font-weight: 700;
+    }
 
-.progress button {
-  flex: 1;
-  height: 20px;
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  padding: 8px 0;
-}
+    .wrap {
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 5vw;
+    }
 
-.progress button::after {
-  content: "";
-  display: block;
-  height: 4px;
-  border-radius: 5px;
-  background: #777;
-}
+    section {
+      scroll-margin-top: 65px;
+    }
 
-.progress button.active::after {
-  background: #fff;
-  box-shadow: 0 0 8px #555;
-}
+    .eyebrow {
+      font: 11px/1.5 monospace;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
 
-.action {
-  margin-top: 30px;
-  padding: 15px 22px;
-  background: #f5f3ee;
-  color: #101010;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  align-self: flex-start;
-}
+    h1, h2, h3, p {
+      margin: 0;
+    }
 
-#demo {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 5px;
-  max-width: 400px;
-  margin-top: 25px;
-}
+    h1 {
+      font-size: clamp(58px, 11vw, 140px);
+      line-height: .86;
+      letter-spacing: -.075em;
+      font-weight: 850;
+    }
 
-.cell {
-  height: 22px;
-  background: #53616c;
-  border-radius: 3px;
-  transition: background 0.4s;
-}
+    h2 {
+      font-size: clamp(36px, 6vw, 76px);
+      line-height: 1;
+      letter-spacing: -.055em;
+      margin: 12px 0 24px;
+    }
 
-.cell.error {
-  background: #b77d43;
-}
+    h3 {
+      font-size: 22px;
+      letter-spacing: -.04em;
+    }
 
-.cell.valid {
-  background: #65957c;
-}
-</style>
+    p {
+      max-width: 650px;
+    }
+
+    /* HERO SECTION */
+
+    .hero {
+      min-height: 85svh;
+      display: grid;
+      align-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero .wrap {
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p {
+      margin: 24px 0;
+      color: #c0c6ba;
+      max-width: 430px;
+    }
+
+    .accent {
+      color: var(--lime);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .actions a {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    /* ANIMATED ORBIT */
+
+    .orbit {
+      position: absolute;
+      width: 65vw;
+      max-width: 650px;
+      aspect-ratio: 1;
+      right: -15%;
+      top: 5%;
+      border: 1px solid #d8fa7830;
+      border-radius: 50%;
+      box-shadow:
+        0 0 100px #d8fa7812,
+        inset 0 0 100px #d8fa7810;
+      animation: spin 24s linear infinite;
+    }
+
+    .orbit:before,
+    .orbit:after {
+      content: '';
+      position: absolute;
+      inset: 12%;
+      border: 1px solid #d8fa7830;
+      border-radius: 50%;
+      transform: rotateX(55deg);
+    }
+
+    .orbit:after {
+      inset: 24%;
+      transform: rotateY(60deg);
+    }
+
+    .dot {
+      position: absolute;
+      top: 8%;
+      left: 20%;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 25px var(--lime);
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* KEY STATISTICS */
+
+    .strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-block: 1px solid #ffffff25;
+    }
+
+    .stat {
+      padding: 24px 5vw;
+      border-right: 1px solid #ffffff25;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: clamp(30px, 5vw, 60px);
+      line-height: 1;
+      color: var(--lime);
+      letter-spacing: -.06em;
+    }
+
+    .stat span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* CONTENT SECTIONS */
+
+    .light {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .light .eyebrow {
+      color: #62685e;
+    }
+
+    .light button {
+      border-color: #11141140;
+    }
+
+    .light .primary {
+      background: var(--ink);
+      color: white;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .panel {
+      border: 1px solid #ffffff25;
+      border-radius: 20px;
+      padding: 24px;
+      background: #ffffff05;
+    }
+
+    .light .panel {
+      border-color: #11141125;
+      background: #fff5;
+    }
+
+    .panel p {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    /* INTERACTIVE EXPERIENCE */
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0;
+    }
+
+    .tabs button[aria-pressed=true] {
+      background: var(--ink);
+      color: white;
+    }
+
+    .darktabs button[aria-pressed=true] {
+      background: var(--lime);
+      color: var(--ink);
+    }
+
+    .role {
+      min-height: 230px;
+    }
+
+    .role ul {
+      padding-left: 20px;
+    }
+
+    .role li {
+      margin: 8px 0;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      border: 1px solid currentColor;
+      border-radius: 30px;
+      padding: 4px 9px;
+      margin: 4px 4px 0 0;
+    }
+
+    /* INTERACTIVE CASE STUDY */
+
+    .case {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .demo {
+      background: #1c231c;
+      border: 1px solid #ffffff20;
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .demo table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      table-layout: fixed;
+    }
+
+    .demo td,
+    .demo th {
+      padding: 10px 4px;
+      text-align: left;
+      border-bottom: 1px solid #ffffff20;
+      overflow-wrap: anywhere;
+    }
+
+    .bad {
+      color: #ffc08b;
+    }
+
+    .good {
+      color: var(--lime);
+    }
+
+    .demo button {
+      margin-top: 18px;
+      width: 100%;
+    }
+
+    .metric {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -.06em;
+    }
+
+    /* PROFESSIONAL STORIES */
+
+    .story details {
+      border-top: 1px solid #ffffff25;
+      padding: 20px 0;
+    }
+
+    .story summary {
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 650;
+    }
+
+    .story p {
+      margin-top: 12px;
+      color: #c4c9c0;
+    }
+
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .steps button[aria-pressed=true] {
+      background: var(--lime);
+      color: #111;
+    }
+
+    .steptext {
+      min-height: 100px;
+      margin-top: 20px;
+    }
+
+    /* EDUCATION TIMELINE */
+
+    .timeline {
+      border-left: 1px solid #11141140;
+      padding-left: 22px;
+    }
+
+    .timeline article {
+      position: relative;
+      margin: 0 0 24px;
+    }
+
+    .timeline article:before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 7px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #111;
+    }
+
+    .timeline p {
+      font-size: 14px;
+    }
+
+    /* FOOTER AND PROGRESS */
+
+    .foot {
+      padding: 25px 5vw;
+      border-top: 1px solid #ffffff20;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    #bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--lime);
+      z-index: 20;
+      width: 0;
+    }
+
+    /* QUICK PROFESSIONAL PROFILE */
+
+    .quick {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      background: #111411ef;
+      padding: 20px;
+      overflow: auto;
+    }
+
+    .quick[hidden] {
+      display: none;
+    }
+
+    .quick .panel {
+      max-width: 650px;
+      margin: 20px auto;
+      background: #20251f;
+    }
+
+    .close {
+      float: right;
+    }
+
+    /* MUSIC VISUALIZATION */
+
+    .wave {
+      display: flex;
+      align-items: center;
+      height: 90px;
+      gap: 5px;
+      margin: 20px 0;
+    }
+
+    .wave i {
+      flex: 1;
+      background: var(--lime);
+      border-radius: 8px;
+      height: var(--h);
+      opacity: .7;
+    }
+
+    .wave.play i {
+      animation: pulse .8s alternate infinite;
+      animation-delay: var(--d);
+    }
+
+    @keyframes pulse {
+      to {
+        transform: scaleY(.25);
+      }
+    }
+
+    /* MOBILE RESPONSIVENESS */
+
+    @media (max-width: 650px) {
+
+      .grid, .case {
+        grid-template-columns: 1fr;
+      }
+
+      .wrap {
+        padding: 48px 5vw;
+      }
+
+      .hero .wrap {
+        padding-block: 60px;
+      }
+
+      .nav a {
+        display: none;
+      }
+
+      .stat {
+        padding: 18px 10px;
+      }
+
+      .stat span {
+        font-size: 11px;
+      }
+
+      .panel {
+        padding: 18px;
+      }
+
+      .orbit {
+        width: 90vw;
+        right: -40%;
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+      }
+
+    }
+
+  </style>
+
 </head>
 
 <body>
 
-<header>
-  <div class="logo">RA.</div>
-  <div id="counter">01 / 06</div>
-</header>
+  <div id="bar"></div>
 
-<main id="feed">
+  <!-- NAVIGATION -->
 
-<section class="intro">
-  <div class="chapter">01 / THE INTRODUCTION</div>
-  <h1>The art of<br>figuring<br>things out.</h1>
-  <p>Business. Technology. Creativity. Curiosity.</p>
-  <div class="scroll">SWIPE TO DISCOVER ↓</div>
-</section>
+  <header>
 
-<section class="journey">
-  <div class="chapter">02 / THE JOURNEY</div>
-  <h1>10 years.<br>Two countries.</h1>
-  <p>Turkmenistan. Austria. Home again.
-  Two university degrees and a different
-  perspective on the world.</p>
-</section>
+    <a class="brand" href="#home">
+      RA<span class="accent">.</span>
+    </a>
 
-<section class="mind">
-  <div class="chapter">03 / THE MIND</div>
-  <h1>There must be<br>a better way.</h1>
-  <p>Understand. Explore. Learn. Build.
-  I enjoy finding solutions that make
-  complicated things simpler.</p>
-</section>
+    <nav class="nav">
 
-<section class="evidence">
-  <div class="chapter">04 / THE EVIDENCE</div>
-  <h1>Beyond<br>the task.</h1>
-  <p>An illustrative demonstration of
-  structured data collection.</p>
-  <div id="demo"></div>
-  <button class="action" id="solve">
-    Improve the process
-  </button>
-</section>
+      <a href="#experience">Experience</a>
 
-<section class="human">
-  <div class="chapter">05 / THE HUMAN</div>
-  <h1>More than<br>work.</h1>
-  <p>Music. Guitar. Exploration.
-  Curiosity doesn't end at the office.</p>
-</section>
+      <a href="#evidence">Projects</a>
 
-<section class="future">
-  <div class="chapter">06 / THE NEXT CHAPTER</div>
-  <h1>Ready for<br>what's next.</h1>
-  <p>New challenges. Greater responsibility.
-  More opportunities to learn and contribute.</p>
-  <p>RASUL ATAYEV</p>
-</section>
+      <button id="openQuick">
+        30-sec profile ↗
+      </button>
 
-</main>
+    </nav>
 
-<div class="progress" id="progress"></div>
+  </header>
 
-<script>
-const feed = document.getElementById("feed");
-const sections = document.querySelectorAll("section");
-const progress = document.getElementById("progress");
+  <main>
 
-sections.forEach((section, i) => {
-  const button = document.createElement("button");
-  button.setAttribute("aria-label", "Chapter " + (i + 1));
-  button.onclick = () => section.scrollIntoView({
-    behavior: "smooth"
-  });
-  progress.appendChild(button);
-});
+    <!-- CHAPTER 01: INTRODUCTION -->
 
-function updateProgress() {
-  let current = 0;
-  let distance = Infinity;
+    <section class="hero" id="home">
 
-  sections.forEach((section, i) => {
-    const d = Math.abs(
-      section.getBoundingClientRect().top
-    );
-    if (d < distance) {
-      distance = d;
-      current = i;
+      <div class="orbit" aria-hidden="true">
+        <i class="dot"></i>
+      </div>
+
+      <div class="wrap">
+
+        <div class="eyebrow">
+          Rasul Atayev, MA · Ashgabat, Turkmenistan
+        </div>
+
+        <h1 style="margin-top:24px">
+          Curiosity.<br>
+          Put to <span class="accent">work.</span>
+        </h1>
+
+        <p>
+          Business consultant. Austrian-educated.
+          Interested in the way people, data and
+          processes come together — and how to
+          make them work better.
+        </p>
+
+        <div class="actions">
+
+          <a class="pill primary" href="#evidence">
+            See how I think ↓
+          </a>
+
+          <a class="pill" href="#experience">
+            Explore my experience
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <div class="strip">
+
+      <div class="stat">
+        <strong>10</strong>
+        <span>Years abroad</span>
+      </div>
+
+      <div class="stat">
+        <strong>2</strong>
+        <span>University degrees</span>
+      </div>
+
+      <div class="stat">
+        <strong>4</strong>
+        <span>Languages</span>
+      </div>
+
+    </div>
+
+    <!-- CHAPTER 02: THE JOURNEY -->
+
+    <section class="light" id="experience">
+
+      <div class="wrap">
+
+        <div class="eyebrow">
+          02 / The journey
+        </div>
+
+        <h2>
+          Different environments.<br>
+          One curious mind.
+        </h2>
+
+        <p>
+          From engineering consultancies in Vienna
+          to business consulting in Ashgabat.
+          Select a company to explore my work.
+        </p>
+
+        <div class="tabs" id="roles"></div>
+
+        <div
+          class="panel role"
+          id="role"
+          aria-live="polite">
+        </div>
+
+        <div class="grid" style="margin-top:24px">
+
+          <div class="panel">
+
+            <div class="eyebrow">
+              Education / Austria
+            </div>
+
+            <div class="timeline" style="margin-top:20px">
+
+              <article>
+                <h3>2023 · Master's</h3>
+                <p>Marketing Analytics · FHWN</p>
+              </article>
+
+              <article>
+                <h3>2021 · Bachelor's</h3>
+                <p>
+                  International Management
+                  (HR, Economics) · FHWN
+                </p>
+              </article>
+
+              <article>
+                <h3>2017 · College diploma</h3>
+                <p>
+                  Tourism and Management · ITM College
+                </p>
+              </article>
+
+            </div>
+
+          </div>
+
+          <div class="panel">
+
+            <div class="eyebrow">
+              Working across cultures
+            </div>
+
+            <h3 style="margin-top:16px">
+              Four languages
+            </h3>
+
+            <p>
+              Turkmen · Russian · English · German
+            </p>
+
+            <h3 style="margin-top:24px">
+              Tools I work with
+            </h3>
+
+            <div id="tags"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CHAPTER 03: THE MIND -->
+
+    <section id="mind">
+
+      <div class="wrap">
+
+        <div class="eyebrow">
+          03 / The mind
+        </div>
+
+        <h2>
+          How I approach<br>
+          the unfamiliar.
+        </h2>
+
+        <p>
+          When I encounter a problem,
+          I want to understand it before
+          jumping to a solution.
+        </p>
+
+        <div
+          class="steps"
+          id="steps"
+          style="margin-top:24px">
+        </div>
+
+        <div
+          class="panel steptext"
+          id="steptext"
+          aria-live="polite">
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CHAPTER 04: THE EVIDENCE -->
+
+    <section id="evidence" style="background:#192019">
+
+      <div class="wrap">
+
+        <div class="eyebrow">
+          04 / The evidence
+        </div>
+
+        <h2>Try the difference.</h2>
+
+        <div class="case">
+
+          <div>
+
+            <h3>
+              Making survey data easier to use.
+            </h3>
+
+            <p style="margin-top:12px;color:#c4c9c0">
+              For an automotive research project
+              with a planned sample of 1,000 respondents,
+              I developed an Excel-based entry system
+              with dropdowns, routing and visual checks.
+            </p>
+
+            <p style="margin-top:12px;color:#c4c9c0">
+              Try a miniature example of the
+              validation logic.
+              No real client data is used.
+            </p>
+
+          </div>
+
+          <div class="demo">
+
+            <div class="eyebrow">
+              Interactive example / simulated data
+            </div>
+
+            <div
+              class="metric"
+              id="metric"
+              aria-live="polite">
+              3 issues
+            </div>
+
+            <table>
+
+              <thead>
+                <tr>
+                  <th>Brand</th>
+                  <th>Year</th>
+                  <th>Fuel</th>
+                </tr>
+              </thead>
+
+              <tbody id="rows"></tbody>
+
+            </table>
+
+            <button class="primary" id="validate">
+              Apply validation rules
+            </button>
+
+            <p
+              id="feedback"
+              style="font-size:12px;margin-top:12px;color:#c4c9c0">
+              Inconsistent labels and missing fields.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="story" style="margin-top:36px">
+
+          <details>
+
+            <summary>
+              FCP · Taking initiative beyond my role
+            </summary>
+
+            <p>
+              While supporting quality management
+              and HR, I explored JavaScript and VBA
+              to develop a QR code system and help
+              colleagues with their workload.
+            </p>
+
+          </details>
+
+          <details>
+
+            <summary>
+              VCE · Making internal communication engaging
+            </summary>
+
+            <p>
+              I worked on internal communication,
+              visual content and marketing support,
+              combining analytical and creative skills.
+            </p>
+
+          </details>
+
+          <details>
+
+            <summary>
+              Nexia · Turning research into recommendations
+            </summary>
+
+            <p>
+              My consulting work includes market research,
+              financial modelling, business plans,
+              feasibility studies and business
+              recommendations.
+            </p>
+
+          </details>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CHAPTER 05: THE HUMAN -->
+
+    <section class="light" id="human">
+
+      <div class="wrap">
+
+        <div class="eyebrow">
+          05 / The human
+        </div>
+
+        <h2>Outside the spreadsheet.</h2>
+
+        <div class="grid">
+
+          <div class="panel">
+
+            <h3>
+              Music is another way to explore.
+            </h3>
+
+            <p>
+              I play guitar and enjoy listening
+              closely to how instruments, rhythm
+              and individual layers fit together.
+            </p>
+
+            <div
+              class="wave"
+              id="wave"
+              aria-hidden="true">
+            </div>
+
+            <button id="waveBtn">
+              Animate the rhythm
+            </button>
+
+            <p style="font-size:11px">
+              Visual rhythm study — no audio.
+            </p>
+
+          </div>
+
+          <div class="panel">
+
+            <h3>
+              Always learning something.
+            </h3>
+
+            <p>
+              Travel, cooking, music and technology.
+              I enjoy discovering how things work,
+              even when they have nothing to do
+              with my job.
+            </p>
+
+            <p style="
+              margin-top:25px;
+              font-size:24px;
+              line-height:1.2;
+              letter-spacing:-1px;
+            ">
+              “I don't mind doing more work today
+              if it means less unnecessary work
+              tomorrow.”
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CHAPTER 06: THE NEXT CHAPTER -->
+
+    <section id="next">
+
+      <div class="wrap">
+
+        <div class="eyebrow">
+          06 / The next chapter
+        </div>
+
+        <h2>
+          Ready for a<br>
+          <span class="accent">bigger challenge.</span>
+        </h2>
+
+        <p>
+          I'm looking to contribute to an
+          international team in Ashgabat,
+          learn from experienced colleagues
+          and take on greater responsibility.
+          I'm open to opportunities across
+          business, operations, project support
+          and analytical functions.
+        </p>
+
+        <div class="actions">
+
+          <a
+            class="pill primary"
+            href="https://www.linkedin.com/in/rasul-atayev/">
+            Connect on LinkedIn ↗
+          </a>
+
+          <button id="openQuick2">
+            View professional profile
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    Rasul Atayev · Personal portfolio · Experimental V0.2
+  </footer>
+
+  <!-- QUICK PROFESSIONAL PROFILE -->
+
+  <div
+    class="quick"
+    id="quick"
+    hidden
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="quickTitle">
+
+    <div class="panel">
+
+      <button class="close" id="closeQuick">
+        Close ×
+      </button>
+
+      <div class="eyebrow">
+        Professional overview
+      </div>
+
+      <h2 id="quickTitle" style="font-size:42px">
+        Rasul Atayev, MA
+      </h2>
+
+      <p>
+        Business consultant based in Ashgabat.
+        Professional experience in Austria
+        and Turkmenistan.
+      </p>
+
+      <h3 style="margin-top:22px">
+        Experience
+      </h3>
+
+      <p>
+        Nexia · 2025–present<br>
+        VCE · 2023<br>
+        S3K · 2022<br>
+        FCP · 2021
+      </p>
+
+      <h3 style="margin-top:22px">
+        Education
+      </h3>
+
+      <p>
+        Master's in Marketing Analytics · FHWN<br>
+        Bachelor's in International Management · FHWN<br>
+        Tourism and Management · ITM College
+      </p>
+
+      <h3 style="margin-top:22px">
+        Core capabilities
+      </h3>
+
+      <p>
+        Business planning, financial modelling,
+        research, data analysis, project
+        documentation and communication.
+      </p>
+
+      <div class="actions">
+
+        <a
+          class="pill primary"
+          href="https://www.linkedin.com/in/rasul-atayev/">
+          LinkedIn ↗
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ========================================
+       JAVASCRIPT
+       INTERACTIVE FUNCTIONALITY
+  ======================================== -->
+
+  <script>
+
+    const $ = id => document.getElementById(id);
+
+    /* PROFESSIONAL EXPERIENCE DATA */
+
+    const roles = [
+
+      [
+        'Nexia',
+        '2025–present · Ashgabat',
+        'Business consulting',
+        [
+          'Business plans and feasibility studies',
+          'Financial modelling and market research',
+          'Project evaluation, reporting and recommendations'
+        ]
+      ],
+
+      [
+        'VCE',
+        '2023 · Vienna',
+        'Marketing assistant',
+        [
+          'Market and competitor research',
+          'Mailchimp campaigns and Excel dashboards',
+          'Visual content and internal communications'
+        ]
+      ],
+
+      [
+        'S3K',
+        '2022 · Remote',
+        'Marketing assistant',
+        [
+          'Digital content and LinkedIn campaigns',
+          'Campaign performance analysis',
+          'Research and administrative support'
+        ]
+      ],
+
+      [
+        'FCP',
+        '2021 · Vienna',
+        'Quality management & HR intern',
+        [
+          'Integrated Management System documentation',
+          'HR and tender documentation',
+          'Data analysis for climate and compliance initiatives'
+        ]
+      ]
+
+    ];
+
+    /* INTERACTIVE TABS */
+
+    function tabs(id, items, render) {
+
+      items.forEach((item, i) => {
+
+        let b = document.createElement('button');
+
+        b.textContent = item[0];
+
+        b.setAttribute('aria-pressed', i === 0);
+
+        b.onclick = () => {
+
+          [...$(id).children].forEach(x => {
+
+            x.setAttribute('aria-pressed', x === b);
+
+          });
+
+          render(item);
+
+        };
+
+        $(id).append(b);
+
+      });
+
+      render(items[0]);
+
     }
-  });
 
-  document.getElementById("counter").textContent =
-    String(current + 1).padStart(2, "0") + " / 06";
+    tabs('roles', roles, r => {
 
-  Array.from(progress.children).forEach((button, i) => {
-    button.classList.toggle("active", i <= current);
-  });
-}
+      $('role').innerHTML = `
+        <div class="eyebrow">${r[1]}</div>
+        <h3>${r[0]} / ${r[2]}</h3>
+        <ul>
+          ${r[3].map(x => `<li>${x}</li>`).join('')}
+        </ul>
+      `;
 
-feed.addEventListener("scroll", updateProgress);
-updateProgress();
+    });
 
-const demo = document.getElementById("demo");
-let improved = false;
+    /* SKILLS */
 
-function renderDemo() {
-  demo.innerHTML = "";
+    [
+      'Excel',
+      'VBA',
+      'HTML',
+      'Adobe',
+      'Canva',
+      'Mailchimp',
+      'AI-assisted analysis',
+      'MS Office'
+    ].forEach(t => {
 
-  for (let i = 0; i < 24; i++) {
-    const cell = document.createElement("div");
-    cell.className = "cell";
+      let s = document.createElement('span');
 
-    if (improved) {
-      cell.classList.add("valid");
-    } else if (i % 4 === 0 || i % 7 === 0) {
-      cell.classList.add("error");
+      s.className = 'tag';
+
+      s.textContent = t;
+
+      $('tags').append(s);
+
+    });
+
+    /* PROBLEM-SOLVING PROCESS */
+
+    tabs('steps', [
+
+      [
+        '01 Understand',
+        'Identify the actual problem and who it affects.'
+      ],
+
+      [
+        '02 Explore',
+        'Research options, ask questions and learn what is missing.'
+      ],
+
+      [
+        '03 Build',
+        'Create a practical solution and test it against the task.'
+      ],
+
+      [
+        '04 Improve',
+        'Refine the process so it can be reused by others.'
+      ]
+
+    ], r => {
+
+      $('steptext').innerHTML = `
+        <h3>${r[0]}</h3>
+        <p>${r[1]}</p>
+      `;
+
+    });
+
+    /* DATA VALIDATION DEMONSTRATION */
+
+    let validated = false;
+
+    function demo() {
+
+      let data = validated
+        ? [
+            ['Toyota', '2020', 'Petrol'],
+            ['BMW', '2022', 'Diesel'],
+            ['Hyundai', 'Missing', 'Petrol']
+          ]
+        : [
+            ['toyota', '2020', 'Petrol'],
+            ['B.M.W.', '2022', 'Diesel'],
+            ['Hyundai', '—', 'Petrol']
+          ];
+
+      $('rows').innerHTML = data.map((r, i) => {
+
+        return '<tr>' + r.map((v, j) => {
+
+          let cls =
+            (!validated && j === 0 && i < 2) ||
+            (i === 2 && j === 1)
+              ? 'bad'
+              : validated
+                ? 'good'
+                : '';
+
+          return `<td class="${cls}">${v}</td>`;
+
+        }).join('') + '</tr>';
+
+      }).join('');
+
+      $('metric').textContent = validated
+        ? '1 issue remains'
+        : '3 issues';
+
+      $('feedback').textContent = validated
+        ? 'Brand labels standardized. Missing year flagged for follow-up, not invented.'
+        : 'Inconsistent labels and missing fields.';
+
+      $('validate').textContent = validated
+        ? 'Reset example'
+        : 'Apply validation rules';
+
     }
 
-    demo.appendChild(cell);
-  }
-}
+    $('validate').onclick = () => {
 
-document.getElementById("solve").onclick = function() {
-  improved = !improved;
-  renderDemo();
-  this.textContent = improved
-    ? "Reset demonstration"
-    : "Improve the process";
-};
+      validated = !validated;
 
-renderDemo();
-</script>
+      demo();
+
+    };
+
+    demo();
+
+    /* ANIMATED MUSIC VISUALIZATION */
+
+    for (let i = 0; i < 24; i++) {
+
+      let x = document.createElement('i');
+
+      x.style.setProperty(
+        '--h',
+        (12 + Math.abs(
+          Math.sin(i * 1.7) * Math.cos(i * .31)
+        ) * 72) + 'px'
+      );
+
+      x.style.setProperty(
+        '--d',
+        (i * .07) + 's'
+      );
+
+      $('wave').append(x);
+
+    }
+
+    $('waveBtn').onclick = () => {
+
+      let on = $('wave').classList.toggle('play');
+
+      $('waveBtn').textContent = on
+        ? 'Pause animation'
+        : 'Animate the rhythm';
+
+    };
+
+    /* QUICK PROFILE WINDOW */
+
+    let opener;
+
+    function open(e) {
+
+      opener = e.currentTarget;
+
+      $('quick').hidden = false;
+
+      document.querySelector('main').inert = true;
+
+      document.querySelector('header').inert = true;
+
+      document.body.style.overflow = 'hidden';
+
+      $('closeQuick').focus();
+
+    }
+
+    function close() {
+
+      $('quick').hidden = true;
+
+      document.querySelector('main').inert = false;
+
+      document.querySelector('header').inert = false;
+
+      document.body.style.overflow = '';
+
+      opener?.focus();
+
+    }
+
+    $('openQuick').onclick = open;
+
+    $('openQuick2').onclick = open;
+
+    $('closeQuick').onclick = close;
+
+    document.addEventListener('keydown', e => {
+
+      if (e.key === 'Escape' && !$('quick').hidden) {
+
+        close();
+
+      }
+
+      if (e.key === 'Tab' && !$('quick').hidden) {
+
+        let f = [
+          ...$('quick').querySelectorAll('button,a')
+        ];
+
+        if (
+          e.shiftKey &&
+          document.activeElement === f[0]
+        ) {
+
+          e.preventDefault();
+
+          f.at(-1).focus();
+
+        } else if (
+          !e.shiftKey &&
+          document.activeElement === f.at(-1)
+        ) {
+
+          e.preventDefault();
+
+          f[0].focus();
+
+        }
+
+      }
+
+    });
+
+    /* SCROLL PROGRESS INDICATOR */
+
+    window.addEventListener('scroll', () => {
+
+      $('bar').style.width = (
+        100 * scrollY /
+        Math.max(
+          1,
+          document.documentElement.scrollHeight - innerHeight
+        )
+      ) + '%';
+
+    }, { passive: true });
+
+  </script>
 
 </body>
+
 </html>
