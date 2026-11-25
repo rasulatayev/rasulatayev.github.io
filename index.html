@@ -742,13 +742,28 @@
 
 </style>
 
-</head>
+
+<style>
+#quick {width:min(850px,96vw);max-width:850px;max-height:94vh;padding:0;background:#e9edf0;color:#19252c;border-radius:14px;overflow:auto;}
+.cv-toolbar{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 16px;background:#18242c;color:white;font-size:12px;}
+.cv-toolbar span{flex:1}.cv-toolbar button{padding:8px 12px;font-size:12px;color:white;border-color:#9aaab4;}
+.cv-sheet{box-sizing:border-box;background:white;color:#19252c;margin:18px auto;padding:30px 36px;width:calc(100% - 36px);font-family:Arial,sans-serif;font-size:13px;line-height:1.42;}
+.cv-sheet .cv-header{position:static;background:none;border-bottom:2px solid #28766e;padding:0 0 10px;margin:0 0 12px;}
+#quick .cv-sheet h2{font-size:32px;line-height:1.1;letter-spacing:-.6px;margin:0;color:#19252c;}
+.cv-subtitle{font-size:16px;font-weight:600;margin:4px 0;color:#28766e}.cv-contact{font-size:11px;overflow-wrap:anywhere}.cv-contact a{color:inherit;}
+.cv-sheet h3{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#28766e;border-bottom:1px solid #d9e0e3;margin:13px 0 6px;padding-bottom:3px;}
+#quick .cv-sheet p{font-size:inherit;line-height:inherit;color:inherit;margin:4px 0;max-width:none;}
+.cv-line{display:flex;justify-content:space-between;align-items:baseline;gap:10px;line-height:1.35;}.cv-line span{white-space:nowrap;font-size:.9em;color:#52616b;}.cv-place{font-size:.9em;color:#52616b;margin:1px 0 4px;}.cv-job{margin-bottom:7px;}.cv-sheet ul{padding-left:16px;margin:3px 0;}.cv-sheet li{margin:1px 0;}
+@media(max-width:600px){.cv-sheet{width:100%;margin:0;padding:20px 16px;font-size:12px;}.cv-line{flex-wrap:wrap;gap:2px 8px;}.cv-toolbar span{flex-basis:100%;}}
+@page{size:A4;margin:12mm 14mm;}
+@media print{html,body{background:white!important;color:#19252c!important;margin:0!important;padding:0!important;overflow:visible!important;height:auto!important;}body>*:not(#quick){display:none!important;}#quick,#quick:not([open]){display:block!important;position:static!important;inset:auto!important;transform:none!important;width:100%!important;max-width:none!important;height:auto!important;max-height:none!important;overflow:visible!important;border:0!important;border-radius:0!important;margin:0!important;padding:0!important;background:white!important;box-shadow:none!important;}#quick::backdrop,.cv-toolbar{display:none!important;}.cv-sheet{width:100%!important;margin:0!important;padding:0!important;font-size:10pt!important;line-height:1.32!important;print-color-adjust:exact;-webkit-print-color-adjust:exact;}#quick .cv-sheet h2{font-size:24pt!important;}.cv-sheet h3{margin:9px 0 4px;}.cv-job{break-inside:avoid;}.cv-line{flex-wrap:nowrap;}.cv-sheet a{text-decoration:none;}}
+</style></head>
 
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="top">
 <nav class="wrap nav" aria-label="Main navigation"><a class="brand" href="#main">RA<span style="color:var(--accent)">.</span></a>
 <div class="navlinks"><a href="#journey">Journey</a><a href="#experience">Experience</a><a href="#capabilities">Capabilities</a><a href="#questions">Q&A</a><a href="#contact">Contact</a>
-</div><button class="pill" id="quickOpen">30-second profile ↗</button>
+</div><button class="pill" id="quickOpen">View CV ↗</button>
 </nav>
 <div class="progress" id="progress">
 </div>
@@ -759,7 +774,7 @@
 <div class="wrap">
 <div class="hero-grid">
 <div><span class="eyebrow">Business consultant · Ashgabat, Turkmenistan</span><h1>Rasul<span>Atayev.</span></h1><p>I enjoy figuring things out. My background brings together business, research, technology and experience in Austria and Turkmenistan.</p>
-<div class="actions"><a class="pill" href="#journey">Explore my background ↓</a><a class="outline" href="#contact">Get in touch</a>
+<div class="actions"><a class="pill" href="#journey">Explore my background ↓</a><button class="outline" id="heroCV">View CV</button><button class="outline" id="heroPrint">Print CV</button><a class="outline" href="#contact">Get in touch</a>
 </div>
 </div>
 <div class="portrait photo" data-photo="portrait.jpg"><span class="monogram" aria-hidden="true">RA</span><span class="photo-label">Rasul Atayev · Portrait</span>
@@ -988,7 +1003,7 @@
 
 <footer class="footer" id="contact">
 <div class="wrap"><span class="eyebrow">Contact</span><h2>Let's have a conversation.</h2><p>I'm interested in opportunities with international teams in Ashgabat. If my background seems relevant to your organisation, I'd be happy to hear from you.</p>
-<div class="actions"><a class="pill" href="https://www.linkedin.com/in/rasul-atayev/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a><button class="outline" id="quickBottom">View quick profile</button><button class="outline" id="printProfile">Print professional profile</button>
+<div class="actions"><a class="pill" href="https://www.linkedin.com/in/rasul-atayev/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a><button class="outline" id="quickBottom">View CV</button><button class="outline" id="printProfile">Print CV</button>
 </div>
 <div class="footer-bottom"><span>© Rasul Atayev · Personal portfolio</span><a href="#main">Back to top ↑</a>
 </div>
@@ -996,18 +1011,21 @@
 </footer>
 </main>
 
-<dialog id="quick" aria-labelledby="quickTitle"><button class="close" id="quickClose" aria-label="Close profile">×</button><span class="eyebrow">Executive overview</span><h2 id="quickTitle">Rasul Atayev</h2><p>Business consultant based in Ashgabat, with professional experience in Austria and Turkmenistan.</p>
-<div class="quickfacts">
-<div><strong>Education</strong>Master’s Marketing Analytics<br>Bachelor’s International Management<br>College diploma in Tourism and Management
-</div>
-<div><strong>Experience</strong>Nexia · VCE · S3K · FCP
-</div>
-<div><strong>Capabilities</strong>Research, business planning, analysis, documentation
-</div>
-<div><strong>Languages</strong>English, Russian, Turkmen, German
-</div>
-</div><p>Interested in international teams, meaningful work and professional growth.</p><a class="pill" href="https://www.linkedin.com/in/rasul-atayev/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-</dialog>
+<dialog id="quick" aria-labelledby="quickTitle"><div class="cv-toolbar"><span>Executive overview · Curriculum vitae</span><button class="outline" id="printCV">Print / Save PDF</button><button class="outline" id="quickClose" aria-label="Close CV">Close ×</button></div><article class="cv-sheet" aria-label="Curriculum vitae">
+<header class="cv-header"><h2 id="quickTitle">Rasul Atayev, MA</h2><div class="cv-subtitle">Business Consultant</div><div class="cv-contact">Ashgabat, Turkmenistan · <a href="https://www.linkedin.com/in/rasul-atayev/">linkedin.com/in/rasul-atayev</a></div></header>
+<h3>Professional summary</h3><p>Business consultant with over two years of professional experience in Austria and Turkmenistan and a Master's in Marketing Analytics. Experienced in business planning, feasibility studies, market research, financial projections and project documentation. Resourceful and adaptable, with a structured approach to complex information and a strong interest in contributing to international teams.</p>
+<h3>Professional experience</h3>
+<div class="cv-job"><div class="cv-line"><strong>Business Consultant | Nexia Turkmenistan</strong><span>2025 – Present</span></div><div class="cv-place">Ashgabat, Turkmenistan</div><ul><li>Prepare business plans, feasibility studies, financial projections and business recommendations across sectors.</li><li>Conduct market research, collect and analyse data, and prepare reports and presentations.</li><li>Support project planning, documentation and coordination with internal and external stakeholders.</li></ul></div>
+<div class="cv-job"><div class="cv-line"><strong>Marketing Assistant | VCE Vienna Consulting Engineers</strong><span>2023</span></div><div class="cv-place">Vienna, Austria</div><ul><li>Conducted market and competitive analysis and developed Excel dashboards.</li><li>Supported email campaigns, segmentation, visual communication and internal climate initiatives.</li></ul></div>
+<div class="cv-job"><div class="cv-line"><strong>Marketing Assistant | S3K</strong><span>2022</span></div><div class="cv-place">Remote</div><ul><li>Supported market research, Excel analysis, LinkedIn campaigns and digital performance evaluation.</li></ul></div>
+<div class="cv-job"><div class="cv-line"><strong>Quality Management &amp; HR Intern | FCP Fritsch, Chiari &amp; Partner</strong><span>2021</span></div><div class="cv-place">Vienna, Austria</div><ul><li>Reviewed Integrated Management System documentation and supported HR, tender and project documentation.</li><li>Evaluated data for internal climate and compliance initiatives.</li></ul></div>
+<h3>Education</h3>
+<div class="cv-line"><strong>Master’s in Marketing Analytics</strong><span>2021–2023</span></div><div class="cv-place">Fachhochschule Wiener Neustadt, Austria</div>
+<div class="cv-line"><strong>Bachelor’s in International Management (HR &amp; Economics)</strong><span>2017–2021</span></div><div class="cv-place">Fachhochschule Wiener Neustadt, Austria</div>
+<div class="cv-line"><strong>Diploma in Tourism and Management</strong><span>2015–2017</span></div><div class="cv-place">ITM College, Austria</div>
+<h3>Skills &amp; languages</h3><p><strong>Core:</strong> Business analysis, financial projections, market research, strategic planning, project coordination, reporting and problem-solving.</p><p><strong>Tools:</strong> Excel, Word, PowerPoint, Adobe Photoshop &amp; Illustrator, Canva, Mailchimp, HTML, WordPress, CRM and AI-assisted analysis.</p><p><strong>Languages:</strong> English (C1), Russian (C2), Turkmen (C1), German (B1–B2).</p>
+<h3>Interests</h3><p>Guitar and live music, animal care, cooking and international travel (20+ countries).</p>
+</article></dialog>
 
 <script>
 const career = [['2025 – Present · Ashgabat', 'Nexia', 'Business Consultant', ['Business plans and feasibility studies', 'Market research, data analysis and financial projections', 'Reports, project documentation and recommendations']], ['2023 · Vienna', 'VCE', 'Marketing Assistant', ['Market research and competitive analysis', 'Visual communication, email campaigns and Excel dashboards', 'Support for climate initiatives and internal communications']], ['2022 · Remote', 'S3K', 'Marketing Assistant Intern', ['Administrative support and Excel data analysis', 'Market and competitive research', 'Social media content and campaign performance analysis']], ['2021 · Vienna', 'FCP', 'Quality Management & HR Intern', ['Integrated Management System documentation', 'HR and tender documentation support', 'Data evaluation for climate initiatives and internal compliance']]];
@@ -1030,14 +1048,14 @@ for (let i = 0; i < 45; i++) {
 const music = { whole: 'Start with the bigger picture, whether it is a song or a business problem. Understand the context before examining the details.', detail: 'Isolate an instrument, just as I would separate complex information into smaller, more manageable parts.', pattern: 'Identify recurring patterns and relationships, then connect the individual pieces into a coherent picture.' };
 $$('[data-mode]').forEach(b => b.addEventListener('click', () => { select('#musicTabs', b); wave.dataset.mode = b.dataset.mode; $('#musicText').textContent = music[b.dataset.mode]; }));
 const dialog = $('#quick');
-['#quickOpen', '#quickBottom'].forEach(s => $(s).addEventListener('click', () => dialog.showModal()));
+['#quickOpen', '#quickBottom', '#heroCV'].forEach(s => $(s).addEventListener('click', () => dialog.showModal()));
 $('#quickClose').addEventListener('click', () => dialog.close());
 dialog.addEventListener('click', e => { if (e.target === dialog) {
     const r = dialog.getBoundingClientRect();
     if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom)
         dialog.close();
 } });
-$('#printProfile').addEventListener('click', () => window.print());
+['#printProfile','#heroPrint','#printCV'].forEach(sel => $(sel).addEventListener('click', () => window.print()));
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 if ('IntersectionObserver' in window && !reduced.matches) {
     document.documentElement.classList.add('js');
